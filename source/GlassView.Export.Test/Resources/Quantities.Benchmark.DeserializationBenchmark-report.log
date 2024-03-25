@@ -1,0 +1,137 @@
+// Benchmark Process 12434 has exited with code 0.
+
+Mean = 752.087 ns, StdErr = 1.082 ns (0.14%), N = 15, StdDev = 4.189 ns
+Min = 746.384 ns, Q1 = 748.945 ns, Median = 752.320 ns, Q3 = 754.764 ns, Max = 761.175 ns
+IQR = 5.819 ns, LowerFence = 740.217 ns, UpperFence = 763.493 ns
+ConfidenceInterval = [747.609 ns; 756.566 ns] (CI 99.9%), Margin = 4.479 ns (0.60% of Mean)
+Skewness = 0.34, Kurtosis = 2.27, MValue = 2
+
+// ** Remained 0 (0.0%) benchmark(s) to run. Estimated finish 2024-03-25 20:54 (0h 0m from now) **
+// ***** BenchmarkRunner: Finish  *****
+
+// * Export *
+  BenchmarkDotNet.Artifacts/results/Quantities.Benchmark.DeserializationBenchmark-report.csv
+  BenchmarkDotNet.Artifacts/results/Quantities.Benchmark.DeserializationBenchmark-report-github.md
+  BenchmarkDotNet.Artifacts/results/Quantities.Benchmark.DeserializationBenchmark-report.html
+
+// * Detailed results *
+DeserializationBenchmark.SystemTriple: DefaultJob
+Runtime = .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 163.070 ns, StdErr = 0.362 ns (0.22%), N = 15, StdDev = 1.402 ns
+Min = 160.662 ns, Q1 = 162.053 ns, Median = 163.347 ns, Q3 = 163.971 ns, Max = 166.100 ns
+IQR = 1.918 ns, LowerFence = 159.177 ns, UpperFence = 166.847 ns
+ConfidenceInterval = [161.571 ns; 164.569 ns] (CI 99.9%), Margin = 1.499 ns (0.92% of Mean)
+Skewness = 0.19, Kurtosis = 2.4, MValue = 2
+-------------------- Histogram --------------------
+[159.916 ns ; 166.847 ns) | @@@@@@@@@@@@@@@
+---------------------------------------------------
+
+DeserializationBenchmark.SystemQuantity: DefaultJob
+Runtime = .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 592.035 ns, StdErr = 1.156 ns (0.20%), N = 14, StdDev = 4.324 ns
+Min = 587.058 ns, Q1 = 589.249 ns, Median = 590.875 ns, Q3 = 593.425 ns, Max = 601.529 ns
+IQR = 4.176 ns, LowerFence = 582.985 ns, UpperFence = 599.689 ns
+ConfidenceInterval = [587.157 ns; 596.913 ns] (CI 99.9%), Margin = 4.878 ns (0.82% of Mean)
+Skewness = 0.95, Kurtosis = 2.7, MValue = 2
+-------------------- Histogram --------------------
+[584.703 ns ; 603.884 ns) | @@@@@@@@@@@@@@
+---------------------------------------------------
+
+DeserializationBenchmark.PrefixedQuantity: DefaultJob
+Runtime = .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 681.936 ns, StdErr = 0.910 ns (0.13%), N = 12, StdDev = 3.152 ns
+Min = 677.599 ns, Q1 = 680.341 ns, Median = 681.576 ns, Q3 = 683.097 ns, Max = 690.011 ns
+IQR = 2.756 ns, LowerFence = 676.208 ns, UpperFence = 687.231 ns
+ConfidenceInterval = [677.898 ns; 685.973 ns] (CI 99.9%), Margin = 4.038 ns (0.59% of Mean)
+Skewness = 1.11, Kurtosis = 4, MValue = 2
+-------------------- Histogram --------------------
+[675.792 ns ; 691.819 ns) | @@@@@@@@@@@@
+---------------------------------------------------
+
+DeserializationBenchmark.FractionalQuantity: DefaultJob
+Runtime = .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 1.321 us, StdErr = 0.006 us (0.49%), N = 16, StdDev = 0.026 us
+Min = 1.272 us, Q1 = 1.318 us, Median = 1.330 us, Q3 = 1.335 us, Max = 1.358 us
+IQR = 0.017 us, LowerFence = 1.293 us, UpperFence = 1.360 us
+ConfidenceInterval = [1.295 us; 1.348 us] (CI 99.9%), Margin = 0.026 us (1.99% of Mean)
+Skewness = -0.84, Kurtosis = 2.2, MValue = 2
+-------------------- Histogram --------------------
+[1.268 us ; 1.295 us) | @@@@
+[1.295 us ; 1.371 us) | @@@@@@@@@@@@
+---------------------------------------------------
+
+DeserializationBenchmark.MultiplicativeQuantity: DefaultJob
+Runtime = .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 1.273 us, StdErr = 0.001 us (0.12%), N = 15, StdDev = 0.006 us
+Min = 1.267 us, Q1 = 1.269 us, Median = 1.272 us, Q3 = 1.277 us, Max = 1.287 us
+IQR = 0.008 us, LowerFence = 1.257 us, UpperFence = 1.289 us
+ConfidenceInterval = [1.267 us; 1.280 us] (CI 99.9%), Margin = 0.006 us (0.48% of Mean)
+Skewness = 0.81, Kurtosis = 2.68, MValue = 2
+-------------------- Histogram --------------------
+[1.264 us ; 1.290 us) | @@@@@@@@@@@@@@@
+---------------------------------------------------
+
+DeserializationBenchmark.PowerQuantity: DefaultJob
+Runtime = .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 1.134 us, StdErr = 0.002 us (0.14%), N = 15, StdDev = 0.006 us
+Min = 1.124 us, Q1 = 1.131 us, Median = 1.133 us, Q3 = 1.137 us, Max = 1.147 us
+IQR = 0.007 us, LowerFence = 1.121 us, UpperFence = 1.148 us
+ConfidenceInterval = [1.128 us; 1.141 us] (CI 99.9%), Margin = 0.007 us (0.59% of Mean)
+Skewness = 0.45, Kurtosis = 2.33, MValue = 2
+-------------------- Histogram --------------------
+[1.121 us ; 1.150 us) | @@@@@@@@@@@@@@@
+---------------------------------------------------
+
+DeserializationBenchmark.ScalarPowerQuantity: DefaultJob
+Runtime = .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2; GC = Concurrent Workstation
+Mean = 752.087 ns, StdErr = 1.082 ns (0.14%), N = 15, StdDev = 4.189 ns
+Min = 746.384 ns, Q1 = 748.945 ns, Median = 752.320 ns, Q3 = 754.764 ns, Max = 761.175 ns
+IQR = 5.819 ns, LowerFence = 740.217 ns, UpperFence = 763.493 ns
+ConfidenceInterval = [747.609 ns; 756.566 ns] (CI 99.9%), Margin = 4.479 ns (0.60% of Mean)
+Skewness = 0.34, Kurtosis = 2.27, MValue = 2
+-------------------- Histogram --------------------
+[744.154 ns ; 761.477 ns) | @@@@@@@@@@@@@@@
+---------------------------------------------------
+
+// * Summary *
+
+BenchmarkDotNet v0.13.12, Arch Linux
+Intel Core i7-8565U CPU 1.80GHz (Whiskey Lake), 1 CPU, 8 logical and 4 physical cores
+.NET SDK 8.0.103
+  [Host]     : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.3 (8.0.324.11423), X64 RyuJIT AVX2
+
+
+| Method                 | Mean       | Error    | StdDev   | Ratio | RatioSD | Allocated | Alloc Ratio |
+|----------------------- |-----------:|---------:|---------:|------:|--------:|----------:|------------:|
+| SystemTriple           |   163.1 ns |  1.50 ns |  1.40 ns |  1.00 |    0.00 |      40 B |        1.00 |
+| SystemQuantity         |   592.0 ns |  4.88 ns |  4.32 ns |  3.63 |    0.05 |     160 B |        4.00 |
+| PrefixedQuantity       |   681.9 ns |  4.04 ns |  3.15 ns |  4.19 |    0.05 |     224 B |        5.60 |
+| FractionalQuantity     | 1,321.2 ns | 26.35 ns | 25.88 ns |  8.12 |    0.19 |     744 B |       18.60 |
+| MultiplicativeQuantity | 1,273.5 ns |  6.15 ns |  5.76 ns |  7.81 |    0.07 |     744 B |       18.60 |
+| PowerQuantity          | 1,134.3 ns |  6.72 ns |  6.29 ns |  6.96 |    0.09 |     592 B |       14.80 |
+| ScalarPowerQuantity    |   752.1 ns |  4.48 ns |  4.19 ns |  4.61 |    0.05 |     232 B |        5.80 |
+
+// * Hints *
+Outliers
+  DeserializationBenchmark.SystemQuantity: Default     -> 1 outlier  was  removed (623.13 ns)
+  DeserializationBenchmark.PrefixedQuantity: Default   -> 3 outliers were removed (703.23 ns..718.64 ns)
+  DeserializationBenchmark.FractionalQuantity: Default -> 4 outliers were detected (1.27 us..1.29 us)
+
+// * Legends *
+  Mean        : Arithmetic mean of all measurements
+  Error       : Half of 99.9% confidence interval
+  StdDev      : Standard deviation of all measurements
+  Ratio       : Mean of the ratio distribution ([Current]/[Baseline])
+  RatioSD     : Standard deviation of the ratio distribution ([Current]/[Baseline])
+  Allocated   : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+  Alloc Ratio : Allocated memory ratio distribution ([Current]/[Baseline])
+  1 ns        : 1 Nanosecond (0.000000001 sec)
+
+// * Diagnostic Output - MemoryDiagnoser *
+
+
+// ***** BenchmarkRunner: End *****
+Run time: 00:02:09 (129.42 sec), executed benchmarks: 7
+
+Global total time: 00:02:14 (134.59 sec), executed benchmarks: 7
