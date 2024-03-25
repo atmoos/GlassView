@@ -16,12 +16,16 @@ public sealed class Benchmark(Summary summary) : IBenchmark, ICreate<Benchmark, 
     public required String FullName { get; init; }
     public required String Namespace { get; init; }
     public required DateTime TimeStamp { get; init; }
+    public TimeSpan Duration => summary.TotalTime;
     public EnvironmentInfo Environment { get; } = new EnvironmentInfo(summary.HostEnvironmentInfo);
 
     public IEnumerator<IBenchmarkResult> GetEnumerator()
     {
+        BenchmarkReport? report;
         foreach (var benchmarkCase in summary.BenchmarksCases) {
-            yield return new BenchmarkResult(benchmarkCase);
+            if ((report = summary[benchmarkCase]) != null && report.Success && report.ResultStatistics != null) {
+                yield return new BenchmarkResult(benchmarkCase, report.ResultStatistics, report.GcStats);
+            }
         }
     }
 
