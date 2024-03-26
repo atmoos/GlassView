@@ -1,4 +1,4 @@
-namespace GlassView.Core.Models;
+namespace GlassView.Core;
 
 public interface IName
 {

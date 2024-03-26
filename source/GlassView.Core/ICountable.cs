@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace GlassView.Core.Models;
+namespace GlassView.Core;
 
 public interface ICountable<T> : IEnumerable<T>
 {
