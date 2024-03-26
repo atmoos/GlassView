@@ -24,7 +24,7 @@ public sealed class Benchmark(Summary summary) : IBenchmark, ICreate<Benchmark, 
         }
     }
 
-    public Benchmark Create(Summary argument)
+    public static Benchmark Create(Summary argument)
     {
         var titleSegments = argument.Title.Split('-');
         var fullName = titleSegments[0];
