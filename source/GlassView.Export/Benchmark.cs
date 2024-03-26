@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Globalization;
-using BenchmarkDotNet.Configs;
-using BenchmarkDotNet.Environments;
+﻿using BenchmarkDotNet.Environments;
 using BenchmarkDotNet.Portability.Cpu;
 using BenchmarkDotNet.Reports;
-using BenchmarkDotNet.Running;
 using GlassView.Core;
 using GlassView.Core.Models;
 
@@ -14,6 +10,7 @@ public sealed class Benchmark(Summary summary) : IBenchmark, ICreate<Benchmark, 
 {
     public required String Name { get; init; }
     public required String FullName { get; init; }
+    public Int32 Count => summary.BenchmarksCases.Length;
     public required String Namespace { get; init; }
     public required DateTime TimeStamp { get; init; }
     public TimeSpan Duration => summary.TotalTime;

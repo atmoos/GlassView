@@ -1,9 +1,6 @@
-using System.Collections;
-
 namespace GlassView.Core.Models;
 
-public interface IBenchmark : IName, IEnumerable<IBenchmarkResult>
+public interface IBenchmark : IName, ICountable<IBenchmarkResult>
 {
     DateTime TimeStamp { get; }
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }
