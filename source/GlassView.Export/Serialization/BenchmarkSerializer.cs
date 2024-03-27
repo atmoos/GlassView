@@ -1,7 +1,6 @@
 using System.Text.Json;
 using GlassView.Core.Models;
 using GlassView.Export.Models;
-using Perfolizer.Horology;
 
 namespace GlassView.Export.Serialization;
 

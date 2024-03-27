@@ -7,7 +7,7 @@ using GlassView.Export;
 
 using static BenchmarkDotNet.Columns.StatisticColumn;
 
-IExporter exporter = new Exporter(Directory.CreateDirectory("/home/thomas/repos/BenchView/source/test"));
+IExporter exporter = new Exporter(Directory.CreateDirectory("test"));
 // dotnet run -c Release --project Quantities.Benchmark/
 var config = DefaultConfig.Instance.HideColumns(StdDev, Median, Kurtosis, BaselineRatioColumn.RatioStdDev);
 
