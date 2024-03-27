@@ -1,42 +1,67 @@
-[
-  {
-    "IsBaseline": false,
-    "Categories": [
-      "OtherCat"
-    ],
-    "Statistics": {
-      "Mean": 20045.701006208146,
-      "Median": 19979.336853027344,
-      "StandardError": 114.30401472528298,
-      "StandardDeviation": 302.41999681936375,
-      "SampleSize": 7
+{
+  "Name": "TestBenchmark",
+  "FullName": "GlassView.Benchmark.TestBenchmark",
+  "Count": 2,
+  "Namespace": "GlassView.Benchmark",
+  "Timestamp": "2024-03-27T17:43:29Z",
+  "Duration": "00:00:18.6847154",
+  "Environment": {
+    "OsVersion": "Arch Linux",
+    "Dotnet": {
+      "HasRyuJit": true,
+      "BuildConfig": "RELEASE",
+      "DotNetVersion": "8.0.103",
+      "HasAttachedDebugger": false
     },
-    "Allocation": {
-      "Gen0Collections": 25,
-      "Gen1Collections": 0,
-      "Gen2Collections": 0,
-      "AllocatedBytes": 64968
-    },
-    "Name": "SumDoubles"
+    "Processor": {
+      "Count": 4,
+      "Architecture": "X64",
+      "HardwareIntrinsics": "ToDo!",
+      "PhysicalCoreCount": 4,
+      "LogicalCoreCount": 8,
+      "Name": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz"
+    }
   },
-  {
-    "IsBaseline": true,
-    "Categories": [
-      "SomeCat"
-    ],
-    "Statistics": {
-      "Mean": 10408.630935668945,
-      "Median": 10431.09765625,
-      "StandardError": 67.9545315071226,
-      "StandardDeviation": 179.79079082774965,
-      "SampleSize": 7
+  "BenchmarkCases": [
+    {
+      "IsBaseline": false,
+      "Categories": [
+        "OtherCat"
+      ],
+      "Statistics": {
+        "Mean": 20031.728485107422,
+        "Median": 20008.014114379883,
+        "StandardError": 67.64465027636926,
+        "StandardDeviation": 165.69487700612177,
+        "SampleSize": 6
+      },
+      "Allocation": {
+        "Gen0Collections": 25,
+        "Gen1Collections": 0,
+        "Gen2Collections": 0,
+        "AllocatedBytes": 64968
+      },
+      "Name": "SumDoubles"
     },
-    "Allocation": {
-      "Gen0Collections": 25,
-      "Gen1Collections": 0,
-      "Gen2Collections": 0,
-      "AllocatedBytes": 32584
-    },
-    "Name": "SumIntegers"
-  }
-]
+    {
+      "IsBaseline": true,
+      "Categories": [
+        "SomeCat"
+      ],
+      "Statistics": {
+        "Mean": 10433.469778878349,
+        "Median": 10358.921478271484,
+        "StandardError": 68.06820746624993,
+        "StandardDeviation": 180.09154914564732,
+        "SampleSize": 7
+      },
+      "Allocation": {
+        "Gen0Collections": 25,
+        "Gen1Collections": 0,
+        "Gen2Collections": 0,
+        "AllocatedBytes": 32584
+      },
+      "Name": "SumIntegers"
+    }
+  ]
+}

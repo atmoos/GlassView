@@ -4,7 +4,7 @@ public interface IBenchmark : IName, ICountable<IBenchmarkCase>
 {
     String FullName { get; }
     String Namespace { get; }
-    DateTime TimeStamp { get; }
+    DateTime Timestamp { get; }
     TimeSpan Duration { get; }
     IEnvironmentInfo Environment { get; }
 }

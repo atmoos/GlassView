@@ -10,7 +10,7 @@ public sealed class Benchmark(Summary summary) : IBenchmark, ICreate<Benchmark, 
     public required String FullName { get; init; }
     public Int32 Count => summary.BenchmarksCases.Length;
     public required String Namespace { get; init; }
-    public required DateTime TimeStamp { get; init; }
+    public required DateTime Timestamp { get; init; }
     public TimeSpan Duration => summary.TotalTime;
     public IEnvironmentInfo Environment { get; } = new EnvironmentInfo(summary.HostEnvironmentInfo);
 
@@ -34,13 +34,13 @@ public sealed class Benchmark(Summary summary) : IBenchmark, ICreate<Benchmark, 
             Name = name,
             FullName = fullName,
             Namespace = @namespace,
-            TimeStamp = timestamp,
+            Timestamp = timestamp,
         };
 
         static (String ns, String name) ParseName(String fullName)
         {
             var segments = fullName.Split('.');
-            var @namespace = String.Join(String.Empty, segments[..^1]);
+            var @namespace = String.Join('.', segments[..^1]);
             return (@namespace, segments[^1]);
         }
         static DateTime ParseTimestamp(String[] dateTime)
