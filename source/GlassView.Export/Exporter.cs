@@ -9,7 +9,7 @@ public sealed class Exporter(DirectoryInfo path) : IExporter
     {
         var values = Benchmark.Create(summary);
         var json = values.Serialize();
-        var filePath = Path.Combine(path.FullName, $"{values}.json");
+        var filePath = Path.Combine(path.FullName, $"{values.Name}.json");
         await File.WriteAllTextAsync(filePath, json, token).ConfigureAwait(false);
     }
 }

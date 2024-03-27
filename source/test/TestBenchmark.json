@@ -1,10 +1,9 @@
 {
   "Name": "TestBenchmark",
-  "FullName": "GlassView.Benchmark.TestBenchmark",
   "Count": 2,
   "Namespace": "GlassView.Benchmark",
-  "Timestamp": "2024-03-27T17:43:29Z",
-  "Duration": "00:00:18.6847154",
+  "Timestamp": "2024-03-27T19:37:06+01:00",
+  "Duration": "00:00:17.9755077",
   "Environment": {
     "OsVersion": "Arch Linux",
     "Dotnet": {
@@ -29,11 +28,11 @@
         "OtherCat"
       ],
       "Statistics": {
-        "Mean": 20031.728485107422,
-        "Median": 20008.014114379883,
-        "StandardError": 67.64465027636926,
-        "StandardDeviation": 165.69487700612177,
-        "SampleSize": 6
+        "Mean": 19434.94442967006,
+        "Median": 19432.0311126709,
+        "StandardError": 49.486094956316634,
+        "StandardDeviation": 130.92790061014156,
+        "SampleSize": 7
       },
       "Allocation": {
         "Gen0Collections": 25,
@@ -49,10 +48,10 @@
         "SomeCat"
       ],
       "Statistics": {
-        "Mean": 10433.469778878349,
-        "Median": 10358.921478271484,
-        "StandardError": 68.06820746624993,
-        "StandardDeviation": 180.09154914564732,
+        "Mean": 10238.76375906808,
+        "Median": 10228.724884033203,
+        "StandardError": 27.300216280086513,
+        "StandardDeviation": 72.22958301538577,
         "SampleSize": 7
       },
       "Allocation": {
