@@ -45,7 +45,7 @@ public sealed class Benchmark(Summary summary) : IBenchmark, ICreate<Benchmark, 
         }
         static DateTime ParseTimestamp(String[] dateTime)
         {
-            var date = DateOnly.ParseExact(dateTime[0], "yyMMdd");
+            var date = DateOnly.ParseExact(dateTime[0], "yyyyMMdd");
             var time = TimeOnly.ParseExact(dateTime[1], "HHmmss");
             return new DateTime(date, time, DateTimeKind.Local);
         }

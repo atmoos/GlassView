@@ -1,0 +1,42 @@
+[
+  {
+    "IsBaseline": false,
+    "Categories": [
+      "OtherCat"
+    ],
+    "Statistics": {
+      "Mean": 20045.701006208146,
+      "Median": 19979.336853027344,
+      "StandardError": 114.30401472528298,
+      "StandardDeviation": 302.41999681936375,
+      "SampleSize": 7
+    },
+    "Allocation": {
+      "Gen0Collections": 25,
+      "Gen1Collections": 0,
+      "Gen2Collections": 0,
+      "AllocatedBytes": 64968
+    },
+    "Name": "SumDoubles"
+  },
+  {
+    "IsBaseline": true,
+    "Categories": [
+      "SomeCat"
+    ],
+    "Statistics": {
+      "Mean": 10408.630935668945,
+      "Median": 10431.09765625,
+      "StandardError": 67.9545315071226,
+      "StandardDeviation": 179.79079082774965,
+      "SampleSize": 7
+    },
+    "Allocation": {
+      "Gen0Collections": 25,
+      "Gen1Collections": 0,
+      "Gen2Collections": 0,
+      "AllocatedBytes": 32584
+    },
+    "Name": "SumIntegers"
+  }
+]
