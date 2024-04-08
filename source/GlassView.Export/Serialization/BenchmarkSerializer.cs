@@ -1,22 +1,21 @@
 using System.Text.Json;
 using GlassView.Core.Models;
-using GlassView.Export.Models;
 
 namespace GlassView.Export.Serialization;
 
-internal sealed class BenchmarkSerializer : System.Text.Json.Serialization.JsonConverter<Benchmark>
+internal sealed class BenchmarkSerializer : System.Text.Json.Serialization.JsonConverter<BenchmarkSummary>
 {
-    public override void Write(Utf8JsonWriter writer, Benchmark value, JsonSerializerOptions options)
+    public override void Write(Utf8JsonWriter writer, BenchmarkSummary value, JsonSerializerOptions options)
     {
         writer.WriteStartObject();
         WriteBenchmark(new JsonWriter(writer), value);
         writer.WritePropertyName(nameof(value.Environment));
         JsonSerializer.Serialize(writer, value.Environment, options);
         writer.WritePropertyName("BenchmarkCases");
-        JsonSerializer.Serialize(writer, (IEnumerable<IBenchmarkCase>)value, options);
+        JsonSerializer.Serialize(writer, (IEnumerable<BenchmarkCase>)value, options);
         writer.WriteEndObject();
 
-        static void WriteBenchmark(JsonWriter writer, IBenchmark value)
+        static void WriteBenchmark(JsonWriter writer, BenchmarkSummary value)
         {
             writer.Write(nameof(value.Name), value.Name);
             writer.Write(nameof(value.Count), value.Count);
@@ -25,7 +24,7 @@ internal sealed class BenchmarkSerializer : System.Text.Json.Serialization.JsonC
             writer.Write(nameof(value.Duration), value.Duration);
         }
     }
-    public override Benchmark? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
+    public override BenchmarkSummary? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => throw new NotImplementedException();
 }
 
 file sealed class JsonWriter
