@@ -23,6 +23,7 @@ public class SerializationTest
         BenchmarkSummary actual = File.ReadAllText(testFile).Deserialize<BenchmarkSummary>();
 
         Assert.NotNull(actual);
+        Assert.Equal(actual.Count, actual.Count());
     }
 
     [Fact]
