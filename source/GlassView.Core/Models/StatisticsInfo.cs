@@ -1,6 +1,6 @@
 namespace GlassView.Core.Models;
 
-public sealed class StatisticsInfo
+public sealed record class StatisticsInfo
 {
     public required Double Mean { get; set; }
     public required Double Median { get; set; }

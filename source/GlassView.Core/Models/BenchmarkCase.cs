@@ -1,6 +1,6 @@
 namespace GlassView.Core.Models;
 
-public sealed class BenchmarkCase : IName
+public sealed record class BenchmarkCase : IName
 {
     public required String Name { get; set; }
     public required Boolean IsBaseline { get; set; }

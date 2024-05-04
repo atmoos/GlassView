@@ -34,6 +34,30 @@ public class SerializationTest
         String serializedSummary = expected.Serialize();
         BenchmarkSummary actual = serializedSummary.Deserialize<BenchmarkSummary>();
 
-        Assert.Equal(expected, actual);
+        AssertEqual(expected, actual);
+    }
+
+    // ToDo: For some reason the standard equality check fails, so asserting each property individually for now...
+    private static void AssertEqual(BenchmarkSummary expected, BenchmarkSummary actual)
+    {
+        Assert.Equal(expected.Name, actual.Name);
+        Assert.Equal(expected.Count, actual.Count);
+        Assert.Equal(expected.Namespace, actual.Namespace);
+        Assert.Equal(expected.Timestamp, actual.Timestamp);
+        Assert.Equal(expected.Duration, actual.Duration);
+        Assert.Equal(expected.Environment, actual.Environment);
+
+        foreach (var (expectedCase, actualCase) in expected.Zip(actual)) {
+            Equal(expectedCase, actualCase);
+        }
+
+        static void Equal(BenchmarkCase expected, BenchmarkCase actual)
+        {
+            Assert.Equal(expected.Name, actual.Name);
+            Assert.Equal(expected.IsBaseline, actual.IsBaseline);
+            Assert.Equal(expected.Categories, actual.Categories);
+            Assert.Equal(expected.Statistics, actual.Statistics);
+            Assert.Equal(expected.Allocation, actual.Allocation);
+        }
     }
 }

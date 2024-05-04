@@ -1,6 +1,6 @@
 namespace GlassView.Core.Models;
 
-public sealed class AllocationInfo
+public sealed record class AllocationInfo
 {
     public required Int32 Gen0Collections { get; set; }
     public required Int32 Gen1Collections { get; set; }

@@ -1,6 +1,6 @@
 namespace GlassView.Core.Models;
 
-public sealed class ProcessorInfo : IName
+public sealed record class ProcessorInfo : IName
 {
     public required String Name { get; set; }
     public Int32 Count { get; set; }

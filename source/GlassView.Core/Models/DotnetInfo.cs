@@ -1,6 +1,6 @@
 namespace GlassView.Core.Models;
 
-public sealed class DotnetInfo
+public sealed record class DotnetInfo
 {
     public required Boolean HasRyuJit { get; set; }
     public required String BuildConfig { get; set; }
