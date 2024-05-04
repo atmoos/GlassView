@@ -2,7 +2,7 @@ namespace GlassView.Core.Models;
 
 public sealed record class EnvironmentInfo
 {
-    public required String OsVersion { get; set; }
-    public required DotnetInfo Dotnet { get; set; }
-    public required ProcessorInfo Processor { get; set; }
+    public required String OsVersion { get; init; }
+    public required DotnetInfo Dotnet { get; init; }
+    public required ProcessorInfo Processor { get; init; }
 }
