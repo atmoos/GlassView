@@ -8,7 +8,7 @@ namespace GlassView.Export;
 
 public static class Extensions
 {
-    public static async Task Export(this IExporter exporter, IEnumerable<Summary> summaries, CancellationToken token = default)
+    public static async Task Export(this IGlassView exporter, IEnumerable<Summary> summaries, CancellationToken token = default)
     {
         // For fun, some interleaved exporting :-)
         IEnumerator<Summary> enumerator = summaries.GetEnumerator();
@@ -23,8 +23,8 @@ public static class Extensions
         }
         await export.ConfigureAwait(None);
     }
-    public static String Serialize<T>(this T value) => Serialize(value, Options(new JsonSerializerOptions()));
-    public static String Serialize<T>(this T value, JsonSerializerOptions options) => JsonSerializer.Serialize(value, options);
+    internal static String Serialize<T>(this T value) => Serialize(value, Options(new JsonSerializerOptions()));
+    internal static String Serialize<T>(this T value, JsonSerializerOptions options) => JsonSerializer.Serialize(value, options);
 
     private static JsonSerializerOptions Options(JsonSerializerOptions options)
     {

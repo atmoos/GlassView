@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using BenchmarkDotNet.Engines;
 using BenchmarkDotNet.Environments;
 using BenchmarkDotNet.Mathematics;
@@ -7,7 +8,13 @@ using GlassView.Core.Models;
 
 namespace GlassView.Export;
 
-public static class Export
+[ExcludeFromCodeCoverage(Justification =
+"""
+BenchmarkDotNet does not allow for deserialization of Summary objects.
+Hence, creating a useful summary instance for testing is a non trivial error
+prone task in itself, making a test flaky at best.
+""")]
+internal static class Mapping
 {
     public static BenchmarkSummary Map(Summary summary)
     {

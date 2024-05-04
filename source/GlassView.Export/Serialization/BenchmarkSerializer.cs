@@ -3,6 +3,8 @@ using GlassView.Core.Models;
 
 namespace GlassView.Export.Serialization;
 
+// This class can be deleted once the following issue is resolved:
+// --> https://github.com/dotnet/runtime/issues/63791
 internal sealed class BenchmarkSerializer : System.Text.Json.Serialization.JsonConverter<BenchmarkSummary>
 {
     public override void Write(Utf8JsonWriter writer, BenchmarkSummary value, JsonSerializerOptions options)

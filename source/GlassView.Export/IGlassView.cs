@@ -2,7 +2,7 @@ using BenchmarkDotNet.Reports;
 
 namespace GlassView.Export;
 
-public interface IExporter
+public interface IGlassView
 {
     Task Export(Summary summary, CancellationToken token = default);
 }
