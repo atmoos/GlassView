@@ -1,10 +1,9 @@
 using System.Text.Json;
 using BenchmarkDotNet.Reports;
-using GlassView.Export.Serialization;
+using GlassView.Core;
 using static System.Threading.Tasks.ConfigureAwaitOptions;
 
 namespace GlassView.Export;
-
 
 public static class Extensions
 {
@@ -23,13 +22,13 @@ public static class Extensions
         }
         await export.ConfigureAwait(None);
     }
+
     internal static String Serialize<T>(this T value) => Serialize(value, Options(new JsonSerializerOptions()));
     internal static String Serialize<T>(this T value, JsonSerializerOptions options) => JsonSerializer.Serialize(value, options);
 
     private static JsonSerializerOptions Options(JsonSerializerOptions options)
     {
         options.WriteIndented = true;
-        options.Converters.Add(new BenchmarkSerializer());
-        return options;
+        return options.EnableGlassView();
     }
 }
