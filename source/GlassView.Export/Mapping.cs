@@ -41,7 +41,7 @@ internal static class Mapping
         {
             var date = DateOnly.ParseExact(dateTime[0], "yyyyMMdd");
             var time = TimeOnly.ParseExact(dateTime[1], "HHmmss");
-            return new DateTime(date, time, DateTimeKind.Local);
+            return new DateTime(date, time, DateTimeKind.Local).ToUniversalTime();
         }
 
         static IEnumerable<BenchmarkCase> Cases(Summary summary)

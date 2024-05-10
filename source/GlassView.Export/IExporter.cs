@@ -4,5 +4,5 @@ namespace GlassView.Export;
 
 public interface IExport
 {
-    Task Export(Summary summary, CancellationToken token = default);
+    Task Export(Summary inputSummary, CancellationToken token = default);
 }

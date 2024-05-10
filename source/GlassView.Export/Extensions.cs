@@ -8,16 +8,16 @@ namespace GlassView.Export;
 
 public static class Extensions
 {
-    public static async Task Export(this IExport exporter, IEnumerable<Summary> summaries, CancellationToken token = default)
+    public static async Task Export(this IExport exporter, IEnumerable<Summary> inputSummaries, CancellationToken token = default)
     {
         // For fun, some interleaved exporting :-)
         Task export = Task.CompletedTask;
-        foreach (Summary summary in summaries) {
+        foreach (Summary summary in inputSummaries) {
             Task next = exporter.Export(summary, token);
             await export.ConfigureAwait(None);
             export = next;
         }
-        await export.ConfigureAwait(false);
+        await export.ConfigureAwait(None);
     }
 
     internal static String Serialize<T>(this T value) => Serialize(value, Options(new JsonSerializerOptions()));
@@ -29,8 +29,5 @@ public static class Extensions
         return options.EnableGlassView();
     }
 
-    internal static T Item<T>(this IConfiguration config)
-    {
-        return config.GetSection(typeof(T).Name).Get<T>();
-    }
+    internal static T Item<T>(this IConfiguration config) => config.GetSection(typeof(T).Name).Get<T>();
 }
