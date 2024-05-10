@@ -2,14 +2,14 @@
   "Name": "TestBenchmark",
   "Count": 2,
   "Namespace": "GlassView.Benchmark",
-  "Timestamp": "2024-04-08T20:36:58+02:00",
-  "Duration": "00:00:17.6461554",
+  "Timestamp": "2024-05-10T18:48:33Z",
+  "Duration": "00:00:16.8376120",
   "Environment": {
     "OsVersion": "Arch Linux",
     "Dotnet": {
       "HasRyuJit": true,
       "BuildConfig": "RELEASE",
-      "DotNetVersion": "8.0.103",
+      "DotNetVersion": "8.0.104",
       "HasAttachedDebugger": false
     },
     "Processor": {
@@ -29,10 +29,10 @@
         "OtherCat"
       ],
       "Statistics": {
-        "Mean": 18607.362380981445,
-        "Median": 18609.904861450195,
-        "StandardError": 27.277743715082305,
-        "StandardDeviation": 72.17012619706291,
+        "Mean": 18416.740883963448,
+        "Median": 18513.408966064453,
+        "StandardError": 50.05902866172867,
+        "StandardDeviation": 132.44374071238855,
         "SampleSize": 7
       },
       "Allocation": {
@@ -49,11 +49,11 @@
         "SomeCat"
       ],
       "Statistics": {
-        "Mean": 10102.325523376465,
-        "Median": 10110.719413757324,
-        "StandardError": 26.80408298234717,
-        "StandardDeviation": 65.65632632996852,
-        "SampleSize": 6
+        "Mean": 9508.539406912667,
+        "Median": 9531.053848266602,
+        "StandardError": 40.72785909663324,
+        "StandardDeviation": 107.7557866017713,
+        "SampleSize": 7
       },
       "Allocation": {
         "Gen0Collections": 25,
