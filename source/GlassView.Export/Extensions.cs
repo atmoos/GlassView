@@ -1,26 +1,23 @@
 using System.Text.Json;
 using BenchmarkDotNet.Reports;
 using GlassView.Core;
+using Microsoft.Extensions.Configuration;
 using static System.Threading.Tasks.ConfigureAwaitOptions;
 
 namespace GlassView.Export;
 
 public static class Extensions
 {
-    public static async Task Export(this IGlassView exporter, IEnumerable<Summary> summaries, CancellationToken token = default)
+    public static async Task Export(this IExport exporter, IEnumerable<Summary> summaries, CancellationToken token = default)
     {
         // For fun, some interleaved exporting :-)
-        IEnumerator<Summary> enumerator = summaries.GetEnumerator();
-        if (!enumerator.MoveNext()) {
-            return;
-        }
-        Task export = exporter.Export(enumerator.Current, token);
-        while (enumerator.MoveNext()) {
-            Task next = exporter.Export(enumerator.Current, token);
+        Task export = Task.CompletedTask;
+        foreach (Summary summary in summaries) {
+            Task next = exporter.Export(summary, token);
             await export.ConfigureAwait(None);
             export = next;
         }
-        await export.ConfigureAwait(None);
+        await export.ConfigureAwait(false);
     }
 
     internal static String Serialize<T>(this T value) => Serialize(value, Options(new JsonSerializerOptions()));
@@ -30,5 +27,10 @@ public static class Extensions
     {
         options.WriteIndented = true;
         return options.EnableGlassView();
+    }
+
+    internal static T Item<T>(this IConfiguration config)
+    {
+        return config.GetSection(typeof(T).Name).Get<T>();
     }
 }
