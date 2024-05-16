@@ -4,9 +4,9 @@ using BenchmarkDotNet.Environments;
 using BenchmarkDotNet.Mathematics;
 using BenchmarkDotNet.Portability.Cpu;
 using BenchmarkDotNet.Reports;
-using GlassView.Core.Models;
+using Atmoos.GlassView.Core.Models;
 
-namespace GlassView.Export;
+namespace Atmoos.GlassView.Export;
 
 [ExcludeFromCodeCoverage(Justification =
 """

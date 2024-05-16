@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using System.Text;
 
-namespace GlassView.Export.Test;
+namespace Atmoos.GlassView.Export.Test;
 
 public class GlassViewTest
 {

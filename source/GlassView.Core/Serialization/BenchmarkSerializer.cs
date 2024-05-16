@@ -1,12 +1,12 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using GlassView.Core.Models;
+using Atmoos.GlassView.Core.Models;
 
 using JR = System.Text.Json.Utf8JsonReader;
 
 using static System.Text.Json.JsonTokenType;
 
-namespace GlassView.Core.Serialization;
+namespace Atmoos.GlassView.Core.Serialization;
 
 // This class can be deleted once the following issue is resolved:
 // --> https://github.com/dotnet/runtime/issues/63791

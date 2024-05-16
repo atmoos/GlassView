@@ -2,7 +2,7 @@
   <Import Project="../GlassView.Build.props" />
 
   <PropertyGroup>
-    <RootNamespace>GlassView.Export</RootNamespace>
+    <RootNamespace>Atmoos.GlassView.Export</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

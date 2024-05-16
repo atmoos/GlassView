@@ -3,7 +3,7 @@
   <Import Project="../GlassView.Test.props" />
 
   <PropertyGroup>
-    <RootNamespace>GlassView.Core.Test</RootNamespace>
+    <RootNamespace>Atmoos.GlassView.Core.Test</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

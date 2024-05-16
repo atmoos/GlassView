@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace GlassView.Core.Test;
+namespace Atmoos.GlassView.Core.Test;
 
 public static class Convenience
 {

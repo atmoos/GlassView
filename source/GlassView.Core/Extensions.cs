@@ -1,7 +1,7 @@
 using System.Text.Json;
-using GlassView.Core.Serialization;
+using Atmoos.GlassView.Core.Serialization;
 
-namespace GlassView.Core;
+namespace Atmoos.GlassView.Core;
 
 public static class Extensions
 {

@@ -1,4 +1,4 @@
-namespace GlassView.Core.Models;
+namespace Atmoos.GlassView.Core.Models;
 
 public sealed record class ProcessorInfo : IName
 {

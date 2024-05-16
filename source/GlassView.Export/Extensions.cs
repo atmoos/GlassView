@@ -1,10 +1,10 @@
 using System.Text.Json;
 using BenchmarkDotNet.Reports;
-using GlassView.Core;
+using Atmoos.GlassView.Core;
 using Microsoft.Extensions.Configuration;
 using static System.Threading.Tasks.ConfigureAwaitOptions;
 
-namespace GlassView.Export;
+namespace Atmoos.GlassView.Export;
 
 public static class Extensions
 {

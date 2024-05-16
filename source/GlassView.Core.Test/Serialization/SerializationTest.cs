@@ -1,6 +1,6 @@
-using GlassView.Core.Models;
+using Atmoos.GlassView.Core.Models;
 
-namespace GlassView.Core.Test;
+namespace Atmoos.GlassView.Core.Test;
 
 public class SerializationTest
 {

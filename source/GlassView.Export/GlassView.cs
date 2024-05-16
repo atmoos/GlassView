@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace GlassView.Export;
+namespace Atmoos.GlassView.Export;
 
 public static class GlassView
 {

@@ -1,6 +1,6 @@
 using BenchmarkDotNet.Reports;
 
-namespace GlassView.Export;
+namespace Atmoos.GlassView.Export;
 
 public interface IExport
 {

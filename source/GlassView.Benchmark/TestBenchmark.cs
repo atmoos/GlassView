@@ -2,7 +2,7 @@
 using System.Linq;
 using BenchmarkDotNet.Attributes;
 
-namespace GlassView.Benchmark;
+namespace Atmoos.GlassView.Benchmark;
 
 [ShortRunJob]
 [IterationCount(7)]

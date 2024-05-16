@@ -1,11 +1,11 @@
 using System.Text.Json;
 using BenchmarkDotNet.Reports;
-using GlassView.Core;
-using GlassView.Core.Models;
+using Atmoos.GlassView.Core;
+using Atmoos.GlassView.Core.Models;
 
-using static GlassView.Export.Mapping;
+using static Atmoos.GlassView.Export.Mapping;
 
-namespace GlassView.Export;
+namespace Atmoos.GlassView.Export;
 
 internal sealed class DirectoryExport(DirectoryInfo path) : IExport
 {

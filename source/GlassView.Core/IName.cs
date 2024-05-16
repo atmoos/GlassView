@@ -1,4 +1,4 @@
-namespace GlassView.Core;
+namespace Atmoos.GlassView.Core;
 
 public interface IName
 {
