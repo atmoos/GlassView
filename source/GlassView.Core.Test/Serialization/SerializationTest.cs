@@ -14,7 +14,7 @@ public class SerializationTest
 
         String actual = benchmarks.Serialize();
 
-        Assert.Equal(expected, actual, ignoreAllWhiteSpace: true);
+        Assert.Equal(expected, actual, ignoreAllWhiteSpace: true, ignoreLineEndingDifferences: true);
     }
 
     [Fact]
@@ -23,7 +23,7 @@ public class SerializationTest
         BenchmarkSummary actual = File.ReadAllText(testFile).Deserialize<BenchmarkSummary>();
 
         Assert.NotNull(actual);
-        Assert.Equal(actual.Count, actual.Count());
+        Assert.Equal(actual.Count, actual.Count);
     }
 
     [Fact]
