@@ -9,13 +9,14 @@ namespace Atmoos.GlassView.Benchmark;
 [MemoryDiagnoser]
 public class TestBenchmark
 {
-    private const Int32 count = 8096;
+    [Params(54, 42)]
+    public Int32 Count { get; set; }
 
     [Benchmark(Baseline = true), BenchmarkCategory("SomeCat")]
-    public Int32 SumIntegers() => Integers(count).Sum();
+    public Int32 SumIntegers() => Integers(Count).Sum();
 
     [Benchmark, BenchmarkCategory("OtherCat")]
-    public Double SumDoubles() => Doubles(count).Sum();
+    public Double SumDoubles() => Doubles(Count).Sum();
     private static Double[] Doubles(Int32 count) => Enumerable.Range(0, count).Select(i => i - count / 2d).ToArray();
     private static Int32[] Integers(Int32 count) => Enumerable.Range(0, count).Select(i => i - count / 2).ToArray();
 }
