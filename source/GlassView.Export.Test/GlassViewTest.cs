@@ -9,7 +9,7 @@ public class GlassViewTest
     [Fact]
     public void ConfigureWithDirectory_ReturnsDirectoryExporter()
     {
-        const String path = "some/export/path/";
+        String path = Path.Combine("some", "export", "path");
         IConfiguration configuration = ReadFromJson(DirectoryExportJson(path));
         IExport exporter = GlassView.Configure(configuration);
 
