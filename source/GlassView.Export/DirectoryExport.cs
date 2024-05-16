@@ -6,7 +6,7 @@ using Atmoos.GlassView.Core.Models;
 using Atmoos.GlassView.Export.Configuration;
 
 using static Atmoos.GlassView.Export.Mapping;
-using static Atmoos.GlassView.Export.Extensions;
+using static Atmoos.GlassView.Export.Configuration.Extensions;
 
 namespace Atmoos.GlassView.Export;
 

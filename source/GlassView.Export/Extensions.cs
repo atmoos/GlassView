@@ -37,32 +37,20 @@ public static class Extensions
         return options.EnableGlassView();
     }
 
-    internal static T Item<T>(this IConfiguration config) => config.GetSection(typeof(T).Name).Get<T>();
-
-    internal static void SetValue<T>(T? value, Action<T> setter)
-        where T : struct
-    {
-        if (value != null) {
-            setter(value.Value);
-        }
-    }
-
-    internal static void Set<T>(T? value, Action<T> setter)
-    where T : class
-    {
-        if (value != null) {
-            setter(value);
-        }
-    }
-
-    internal static DirectoryInfo FindLeaf(String directoryName)
+    /// <summary>
+    /// Find the leaf directory in the current directory structure.
+    /// </summary>
+    /// <param name="leafDirectoryName">The leaf directories name.</param>
+    /// <returns>If found returns that directory.
+    /// When not found returns the leaf directory as subdirectory of the current directory.</returns>
+    internal static DirectoryInfo FindLeaf(String leafDirectoryName)
     {
         DirectoryInfo? result;
         DirectoryInfo cwd, directory;
         directory = cwd = new DirectoryInfo(Directory.GetCurrentDirectory());
-        while ((result = directory.EnumerateDirectories(directoryName, findLeafOptions).SingleOrDefault()) == null) {
+        while ((result = directory.EnumerateDirectories(leafDirectoryName, findLeafOptions).SingleOrDefault()) == null) {
             if (directory.Parent == null) {
-                return cwd.CreateSubdirectory(directoryName);
+                return cwd.CreateSubdirectory(leafDirectoryName);
             }
             directory = directory.Parent;
         }

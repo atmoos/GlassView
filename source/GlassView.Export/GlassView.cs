@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using BenchmarkDotNet.Loggers;
+using Atmoos.GlassView.Export.Configuration;
 
 using static System.IO.Directory;
 
@@ -22,7 +23,7 @@ public static class GlassView
             logger.WriteHint($"No configuration section '{glassViewSection}' found. Using default directory exporter.");
             return Default(logger);
         }
-        var export = section.Item<Configuration.Export>();
+        var export = section.Section<Configuration.Export>();
         return export switch {
             { Directory.Path: var directory, JsonFormatting: null } => new DirectoryExport(CreateDirectory(directory), logger),
             { Directory.Path: var directory, JsonFormatting: var formatting } => new DirectoryExport(CreateDirectory(directory), formatting, logger),

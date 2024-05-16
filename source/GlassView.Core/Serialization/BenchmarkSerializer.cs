@@ -8,7 +8,7 @@ using static System.Text.Json.JsonTokenType;
 
 namespace Atmoos.GlassView.Core.Serialization;
 
-// This class can be deleted once the following issue is resolved:
+// ToDo #10: Remove when upstream issue is resolved.
 // --> https://github.com/dotnet/runtime/issues/63791
 internal sealed class BenchmarkSerializer : JsonConverter<BenchmarkSummary>
 {
@@ -94,7 +94,7 @@ internal sealed class BenchmarkSerializer : JsonConverter<BenchmarkSummary>
     }
 }
 
-// To be deleted, too. (see above)
+// ToDo #10: Delete these convenience classes. (Same as above)
 // For now, it's just a handy way of consistently writing different types of values.
 file sealed class JsonWriter(Utf8JsonWriter writer)
 {
