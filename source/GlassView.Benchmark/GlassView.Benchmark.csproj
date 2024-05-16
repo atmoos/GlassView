@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../GlassView.Build.props" />
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   
@@ -13,6 +13,8 @@
     <Optimize>true</Optimize>
     <Configuration>Release</Configuration>
     <IsPackable>false</IsPackable>
+    <!-- Not bothering about null is handy for benchmarking projects... -->
+    <Nullable>disable</Nullable> 
   </PropertyGroup>
   
   <ItemGroup>
