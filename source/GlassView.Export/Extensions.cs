@@ -30,4 +30,11 @@ public static class Extensions
     }
 
     internal static T Item<T>(this IConfiguration config) => config.GetSection(typeof(T).Name).Get<T>();
+
+    internal static void Set(Boolean? value, Action<Boolean> setter)
+    {
+        if (value != null) {
+            setter(value.Value);
+        }
+    }
 }

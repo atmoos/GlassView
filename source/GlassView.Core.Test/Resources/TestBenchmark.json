@@ -1,9 +1,9 @@
 {
   "Name": "TestBenchmark",
   "Count": 2,
-  "Namespace": "GlassView.Benchmark",
-  "Timestamp": "2024-05-10T18:48:33Z",
-  "Duration": "00:00:16.8376120",
+  "Namespace": "Atmoos.GlassView.Benchmark",
+  "Timestamp": "2024-05-16T06:58:58Z",
+  "Duration": "00:00:17.3516119",
   "Environment": {
     "OsVersion": "Arch Linux",
     "Dotnet": {
@@ -29,10 +29,9 @@
         "OtherCat"
       ],
       "Statistics": {
-        "Mean": 18416.740883963448,
-        "Median": 18513.408966064453,
-        "StandardError": 50.05902866172867,
-        "StandardDeviation": 132.44374071238855,
+        "Mean": 18626.731469290597,
+        "Median": 18723.142532348633,
+        "StandardDeviation": 197.64039065703892,
         "SampleSize": 7
       },
       "Allocation": {
@@ -49,10 +48,9 @@
         "SomeCat"
       ],
       "Statistics": {
-        "Mean": 9508.539406912667,
-        "Median": 9531.053848266602,
-        "StandardError": 40.72785909663324,
-        "StandardDeviation": 107.7557866017713,
+        "Mean": 9862.907213483539,
+        "Median": 9860.353134155273,
+        "StandardDeviation": 79.34832271766703,
         "SampleSize": 7
       },
       "Allocation": {
