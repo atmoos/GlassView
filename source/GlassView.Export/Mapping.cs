@@ -88,7 +88,7 @@ internal static class Mapping
     private static ProcessorInfo Map(CpuInfo cpuInfo, String architecture) => new() {
         Name = cpuInfo.ProcessorName,
         Architecture = architecture,
-        HardwareIntrinsics = "ToDo!",
+        HardwareIntrinsics = "ToDo!", // See issue #9
         Count = cpuInfo.PhysicalCoreCount ?? 0,
         PhysicalCoreCount = cpuInfo.PhysicalCoreCount ?? 0,
         LogicalCoreCount = cpuInfo.LogicalCoreCount ?? 0
