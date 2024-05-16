@@ -19,20 +19,20 @@ internal sealed class DirectoryExport(DirectoryInfo path, ILogger logger) : IExp
         : this(path, logger)
     {
         this.options = new JsonSerializerOptions().EnableGlassView();
-        Set(formatting?.Indented, value => this.options.WriteIndented = value);
-        Set(formatting?.AllowTrailingCommas, value => this.options.AllowTrailingCommas = value);
+        SetValue(formatting.Indented, value => this.options.WriteIndented = value);
+        SetValue(formatting.AllowTrailingCommas, value => this.options.AllowTrailingCommas = value);
     }
 
     public async Task Export(Summary inputSummary, CancellationToken token)
     {
         var summary = Map(inputSummary);
-        FileInfo file = CombineToFile(path, summary);
+        FileInfo file = path.AddFile(FileNameFor(summary));
         logger.WriteLine($"Exporting summary '{summary.Name}' to:");
         logger.WriteLine($" -> {file.FullName}");
         using var stream = file.Open(FileMode.Create, FileAccess.Write, FileShare.None);
         await JsonSerializer.SerializeAsync(stream, summary, this.options, token).ConfigureAwait(ConfigureAwaitOptions.None);
     }
     public override String ToString() => $"{nameof(Export)}: {path.FullName}";
-    private static FileInfo CombineToFile(DirectoryInfo path, BenchmarkSummary summary)
-        => new(Path.Combine(path.FullName, $"{summary.Name}.json"));
+
+    private static String FileNameFor(BenchmarkSummary summary) => $"{summary.Name}-{summary.Timestamp.ToLocalTime():s}.json";
 }
