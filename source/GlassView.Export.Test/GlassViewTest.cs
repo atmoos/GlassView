@@ -38,6 +38,6 @@ public class GlassViewTest
                 }
                 """;
 
-        static String Sanitise(String value) => value.Replace("\"", "\\\"");
+        static String Sanitise(String value) => value.Replace("\\", "/"); // Windows path to Unix path, which are compatible with JSON.
     }
 }
