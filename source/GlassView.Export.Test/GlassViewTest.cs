@@ -31,11 +31,13 @@ public class GlassViewTest
                     "GlassView": {
                         "Export": {
                             "Directory": {
-                                "Path": "{{path}}"
+                                "Path": "{{Sanitise(path)}}"
                              }
                         }
                     }
                 }
                 """;
+
+        static String Sanitise(String value) => value.Replace("\"", "\\\"");
     }
 }
