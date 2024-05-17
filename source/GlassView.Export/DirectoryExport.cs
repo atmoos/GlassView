@@ -18,7 +18,9 @@ internal sealed class DirectoryExport(DirectoryInfo path, JsonSerializerOptions 
         using var stream = file.Open(FileMode.Create, FileAccess.Write, FileShare.None);
         await JsonSerializer.SerializeAsync(stream, summary, options, token).ConfigureAwait(ConfigureAwaitOptions.None);
     }
+
     public override String ToString() => $"{nameof(Export)}: {path.FullName}";
 
-    private static String FileNameFor(BenchmarkSummary summary) => $"{summary.Name}-{summary.Timestamp.ToLocalTime():s}.json";
+    private static String FileNameFor(BenchmarkSummary summary)
+        => $"{summary.Name}-{summary.Timestamp.ToLocalTime():s}.json".Replace(':', '-');
 }
