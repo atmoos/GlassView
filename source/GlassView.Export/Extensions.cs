@@ -16,18 +16,6 @@ public static class Extensions
         AttributesToSkip = FileAttributes.Hidden | FileAttributes.System
     };
 
-    public static async Task Export(this IExport exporter, IEnumerable<Summary> inputSummaries, CancellationToken token = default)
-    {
-        // For fun, some interleaved exporting :-)
-        Task export = Task.CompletedTask;
-        foreach (Summary summary in inputSummaries) {
-            Task next = exporter.Export(summary, token);
-            await export.ConfigureAwait(None);
-            export = next;
-        }
-        await export.ConfigureAwait(None);
-    }
-
     internal static String Serialize<T>(this T value) => Serialize(value, Options(new JsonSerializerOptions()));
     internal static String Serialize<T>(this T value, JsonSerializerOptions options) => JsonSerializer.Serialize(value, options);
 
@@ -59,4 +47,19 @@ public static class Extensions
 
     internal static DirectoryInfo CurrentDirectory() => new(Directory.GetCurrentDirectory());
     internal static FileInfo AddFile(this DirectoryInfo directory, String fileName) => new(Path.Combine(directory.FullName, fileName));
+    internal static void SetValue<T>(T? value, Action<T> setter)
+        where T : struct
+    {
+        if (value != null) {
+            setter(value.Value);
+        }
+    }
+
+    internal static void Set<T>(T? value, Action<T> setter)
+        where T : class
+    {
+        if (value != null) {
+            setter(value);
+        }
+    }
 }

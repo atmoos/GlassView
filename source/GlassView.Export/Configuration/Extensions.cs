@@ -1,6 +1,8 @@
 using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 
+using static Atmoos.GlassView.Export.Extensions;
+
 namespace Atmoos.GlassView.Export.Configuration;
 
 internal static class Extensions
@@ -19,21 +21,4 @@ internal static class Extensions
     /// Safely get a configuration section as a strongly-typed object.
     /// </summary>
     public static T Section<T>(this IConfiguration config) => config.GetSection(typeof(T).Name).Get<T>();
-
-    private static void SetValue<T>(T? value, Action<T> setter)
-        where T : struct
-    {
-        if (value != null) {
-            setter(value.Value);
-        }
-    }
-
-    private static void Set<T>(T? value, Action<T> setter)
-    where T : class
-    {
-        if (value != null) {
-            setter(value);
-        }
-    }
-
 }

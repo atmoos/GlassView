@@ -11,10 +11,11 @@ public class GlassViewTest
     {
         String path = Path.Combine("some", "export", "path");
         IConfiguration configuration = ReadFromJson(DirectoryExportJson(path));
-        IExport exporter = GlassView.Configure(configuration);
+        IGlassView publicExporter = GlassView.Configure(configuration);
 
-        Assert.IsType<DirectoryExport>(exporter);
-        Assert.EndsWith(path, exporter.ToString());
+        var exporter = Assert.IsType<SummaryExporter>(publicExporter);
+        var directoryExporter = Assert.Single(exporter);
+        Assert.IsType<DirectoryExport>(directoryExporter);
     }
 
     private static IConfiguration ReadFromJson(String json)

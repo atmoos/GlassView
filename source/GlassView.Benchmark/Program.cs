@@ -10,7 +10,7 @@ var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false)
     .Build();
 
-IExport exporter = GlassView.Configure(configuration);
+IGlassView exporter = GlassView.Configure(configuration);
 
 // dotnet run -c Release --project GlassView.Benchmark/
 var config = DefaultConfig.Instance.HideColumns(StdDev, Median, Kurtosis, BaselineRatioColumn.RatioStdDev);
