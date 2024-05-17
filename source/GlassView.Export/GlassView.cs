@@ -1,8 +1,11 @@
+using System.Text.Json;
+using Atmoos.GlassView.Core;
 using Microsoft.Extensions.Configuration;
 using BenchmarkDotNet.Loggers;
 using Atmoos.GlassView.Export.Configuration;
 
 using static System.IO.Directory;
+using static Atmoos.GlassView.Export.Configuration.Extensions;
 
 namespace Atmoos.GlassView.Export;
 
@@ -11,7 +14,7 @@ public static class GlassView
     private const String glassViewSection = nameof(GlassView);
     public static IExport Default() => Default(ConsoleLogger.Default);
     public static IExport Default(ILogger logger)
-        => new DirectoryExport(GlassViewArtifactsDirectory(), logger);
+        => new DirectoryExport(GlassViewArtifactsDirectory(), SerializationOptions(), logger);
 
     public static IExport Configure(IConfiguration config)
         => Configure(config, ConsoleLogger.Default);
@@ -24,12 +27,14 @@ public static class GlassView
             return Default(logger);
         }
         var export = section.Section<Configuration.Export>();
+        var serializationOptions = SerializationOptions().Configure(export.JsonFormatting);
         return export switch {
-            { Directory.Path: var directory, JsonFormatting: null } => new DirectoryExport(CreateDirectory(directory), logger),
-            { Directory.Path: var directory, JsonFormatting: var formatting } => new DirectoryExport(CreateDirectory(directory), formatting, logger),
+            { Directory.Path: var directory } => new DirectoryExport(CreateDirectory(directory), serializationOptions, logger),
             _ => throw new ArgumentOutOfRangeException(nameof(config), $"The '{glassViewSection}' section does not contain a valid '{nameof(Export)}' configuration section.")
         };
     }
 
     private static DirectoryInfo GlassViewArtifactsDirectory() => Extensions.FindLeaf("BenchmarkDotNet.Artifacts").CreateSubdirectory(nameof(GlassView));
+
+    private static JsonSerializerOptions SerializationOptions() => new JsonSerializerOptions().EnableGlassView();
 }
