@@ -1,8 +1,5 @@
 using System.Text.Json;
-using BenchmarkDotNet.Reports;
 using Atmoos.GlassView.Core;
-using Microsoft.Extensions.Configuration;
-using static System.Threading.Tasks.ConfigureAwaitOptions;
 
 namespace Atmoos.GlassView.Export;
 
@@ -26,11 +23,12 @@ public static class Extensions
     }
 
     /// <summary>
-    /// Find the leaf directory in the current directory structure.
+    /// Recursively looks upward toward parent directories for the leaf directory <paramref name="leafDirectoryName"/>
+    /// in the current directory structure staring at the current working directory.
     /// </summary>
     /// <param name="leafDirectoryName">The leaf directories name.</param>
-    /// <returns>If found returns that directory.
-    /// When not found returns the leaf directory as subdirectory of the current directory.</returns>
+    /// <returns>If found, returns that directory.
+    /// When not found, returns the leaf directory as subdirectory of the current directory.</returns>
     internal static DirectoryInfo FindLeaf(String leafDirectoryName)
     {
         DirectoryInfo? result;

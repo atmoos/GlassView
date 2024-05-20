@@ -42,7 +42,7 @@ public static class GlassView
         return new SummaryExporter(exporters, logger);
     }
 
-    private static DirectoryInfo GlassViewArtifactsDirectory() => Extensions.FindLeaf("BenchmarkDotNet.Artifacts").CreateSubdirectory(nameof(GlassView));
+    private static DirectoryInfo GlassViewArtifactsDirectory() => FindLeaf("BenchmarkDotNet.Artifacts").CreateSubdirectory(nameof(GlassView));
 
     private static JsonSerializerOptions SerializationOptions() => new JsonSerializerOptions().EnableGlassView();
 }
