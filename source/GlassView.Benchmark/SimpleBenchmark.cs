@@ -6,6 +6,7 @@ namespace Atmoos.GlassView.Benchmark;
 
 [ShortRunJob]
 [IterationCount(7)]
+// So simple, that I don't even add a category...
 public class SimpleBenchmark
 {
     private static readonly String[] strings = Enumerable.Range(0, 321).Select(i => i.ToString()).ToArray();

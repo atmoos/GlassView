@@ -7,6 +7,7 @@ namespace Atmoos.GlassView.Benchmark;
 [ShortRunJob]
 [IterationCount(7)]
 [MemoryDiagnoser]
+[BenchmarkCategory("Regular")]
 public class TestBenchmark
 {
     [Params(54, 42)]

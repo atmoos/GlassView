@@ -8,6 +8,7 @@ namespace Atmoos.GlassView.Benchmark;
 [ShortRunJob]
 [IterationCount(7)]
 [MemoryDiagnoser]
+[BenchmarkCategory("Complex")]
 public class ComplexBenchmark
 {
     private Double[][] left, right;

@@ -2,8 +2,8 @@
   "Name": "TestBenchmark",
   "Count": 4,
   "Namespace": "Atmoos.GlassView.Benchmark",
-  "Timestamp": "2024-05-21T17:02:25Z",
-  "Duration": "00:00:37.3552589",
+  "Timestamp": "2024-05-21T17:16:44Z",
+  "Duration": "00:00:36.9737189",
   "Environment": {
     "OsVersion": "Arch Linux",
     "Dotnet": {
@@ -25,7 +25,8 @@
       "Name": "SumDoubles",
       "IsBaseline": false,
       "Categories": [
-        "OtherCategory"
+        "OtherCategory",
+        "Regular"
       ],
       "Parameters": [
         {
@@ -36,10 +37,10 @@
       ],
       "HardwareIntrinsics": "AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256",
       "Statistics": {
-        "Mean": 160.1772720416387,
-        "Median": 161.11153554916382,
-        "StandardDeviation": 3.283984267128618,
-        "SampleSize": 6
+        "Mean": 161.38355009896415,
+        "Median": 161.19704914093018,
+        "StandardDeviation": 1.8536628217100735,
+        "SampleSize": 7
       },
       "Allocation": {
         "Gen0Collections": 537,
@@ -52,7 +53,8 @@
       "Name": "SumIntegers",
       "IsBaseline": true,
       "Categories": [
-        "SomeCategory"
+        "SomeCategory",
+        "Regular"
       ],
       "Parameters": [
         {
@@ -63,10 +65,10 @@
       ],
       "HardwareIntrinsics": "AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256",
       "Statistics": {
-        "Mean": 122.0535764013018,
-        "Median": 122.00288796424866,
-        "StandardDeviation": 0.7738455166385758,
-        "SampleSize": 7
+        "Mean": 120.6814014116923,
+        "Median": 120.78095936775208,
+        "StandardDeviation": 0.7329357120629901,
+        "SampleSize": 6
       },
       "Allocation": {
         "Gen0Collections": 369,
@@ -79,7 +81,8 @@
       "Name": "SumDoubles",
       "IsBaseline": false,
       "Categories": [
-        "OtherCategory"
+        "OtherCategory",
+        "Regular"
       ],
       "Parameters": [
         {
@@ -90,10 +93,10 @@
       ],
       "HardwareIntrinsics": "AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256",
       "Statistics": {
-        "Mean": 193.20763170719147,
-        "Median": 194.0061250925064,
-        "StandardDeviation": 2.767150186118025,
-        "SampleSize": 6
+        "Mean": 190.1119761126382,
+        "Median": 191.5717384815216,
+        "StandardDeviation": 3.343227140810547,
+        "SampleSize": 7
       },
       "Allocation": {
         "Gen0Collections": 633,
@@ -106,7 +109,8 @@
       "Name": "SumIntegers",
       "IsBaseline": true,
       "Categories": [
-        "SomeCategory"
+        "SomeCategory",
+        "Regular"
       ],
       "Parameters": [
         {
@@ -117,9 +121,9 @@
       ],
       "HardwareIntrinsics": "AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256",
       "Statistics": {
-        "Mean": 137.12576229231698,
-        "Median": 137.32257795333862,
-        "StandardDeviation": 2.69726772992452,
+        "Mean": 137.59001200539726,
+        "Median": 137.89618372917175,
+        "StandardDeviation": 1.0305874559096901,
         "SampleSize": 7
       },
       "Allocation": {
