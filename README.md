@@ -2,7 +2,7 @@
 
 A solution to view and keep track of benchmarking results of dotnet projects.
 
-This is still a project very much in it's infancy. But when it matures, it is supposed to export [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet) results such that they can be tracked over time. This should - if all goes according to plans -- allow teams to keep track of the performance characteristics of a project. Just as many teams already do with correctness and quality aspects by keeping trach of test results (coverage) and code quality metrics.
+This is still a project very much in it's infancy. But when it matures, it is supposed to export [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet) results such that they can be tracked over time. This should allow teams to keep track of the performance characteristics of a project, similarly to keeping track of the test & coverage results as well as code quality metrics.
 
 ## Vision
 
