@@ -14,8 +14,6 @@ public class SerializationTest
         var options = new JsonSerializerOptions().EnableGlassView(); // required!
         BenchmarkSummary actual = testFile.Deserialize<BenchmarkSummary>(options);
 
-        Assert.NotNull(actual);
-
         // The number of cases in the summary could differ if the json was tampered with (not relevant here)
         // or deserialization doesn't pick up the case child nodes (which is of relevance here).
 #pragma warning disable CA1829 // Use Length/Count property instead of Count() when available
@@ -66,7 +64,9 @@ public class SerializationTest
         AssertEqual(expected, actual);
     }
 
-    // ToDo: For some reason the standard equality check fails, so asserting each property individually for now...
+    // FYI: Although BenchmarkSummary is a record, the collection like properties won't
+    //      transitively compare by value. Hence, we need to do a manual comparison.
+    // See here: https://stackoverflow.com/questions/63813872/record-types-with-collection-properties-collections-with-value-semantics
     private static void AssertEqual(BenchmarkSummary expected, BenchmarkSummary actual)
     {
         Assert.Equal(expected.Name, actual.Name);
@@ -85,6 +85,7 @@ public class SerializationTest
             Assert.Equal(expected.Name, actual.Name);
             Assert.Equal(expected.IsBaseline, actual.IsBaseline);
             Assert.Equal(expected.Categories, actual.Categories);
+            Assert.Equal(expected.Parameters, actual.Parameters);
             Assert.Equal(expected.Statistics, actual.Statistics);
             Assert.Equal(expected.Allocation, actual.Allocation);
         }
