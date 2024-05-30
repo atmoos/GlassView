@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../GlassView.Build.props" />
+  <Import Project="../GlassView.Test.props" />
+
+  <PropertyGroup>
+    <RootNamespace>Atmoos.GlassView.Core.Test</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GlassView.Core\GlassView.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\TestBenchmark.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup> 
+
+</Project>

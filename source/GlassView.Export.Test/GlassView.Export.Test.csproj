@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../GlassView.Build.props" />
+  <Import Project="../GlassView.Test.props" />
+
+  <PropertyGroup>
+    <RootNamespace>Atmoos.GlassView.Export.Test</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GlassView.Core\GlassView.Core.csproj" />
+    <ProjectReference Include="..\GlassView.Export\GlassView.Export.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\TestBenchmark.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup> 
+
+</Project>

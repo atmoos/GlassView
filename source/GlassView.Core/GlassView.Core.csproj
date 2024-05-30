@@ -1,0 +1,8 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../GlassView.Build.props" />
+
+  <PropertyGroup>
+    <RootNamespace>Atmoos.GlassView.Core</RootNamespace>
+  </PropertyGroup>
+
+</Project>

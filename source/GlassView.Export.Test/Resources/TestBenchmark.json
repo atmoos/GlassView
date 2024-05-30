@@ -1,0 +1,137 @@
+{
+  "Name": "TestBenchmark",
+  "Count": 4,
+  "Namespace": "Atmoos.GlassView.Benchmark",
+  "Timestamp": "2024-05-21T17:16:44Z",
+  "Duration": "00:00:36.9737189",
+  "Environment": {
+    "OsVersion": "Arch Linux",
+    "Dotnet": {
+      "HasRyuJit": true,
+      "BuildConfig": "RELEASE",
+      "DotNetVersion": "8.0.105",
+      "HasAttachedDebugger": false
+    },
+    "Processor": {
+      "Name": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+      "Count": 4,
+      "Architecture": "X64",
+      "PhysicalCoreCount": 4,
+      "LogicalCoreCount": 8
+    }
+  },
+  "BenchmarkCases": [
+    {
+      "Name": "SumDoubles",
+      "IsBaseline": false,
+      "Categories": [
+        "OtherCategory",
+        "Regular"
+      ],
+      "Parameters": [
+        {
+          "Name": "Count",
+          "Value": "42",
+          "Type": "Int32"
+        }
+      ],
+      "HardwareIntrinsics": "AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256",
+      "Statistics": {
+        "Mean": 161.38355009896415,
+        "Median": 161.19704914093018,
+        "StandardDeviation": 1.8536628217100735,
+        "SampleSize": 7
+      },
+      "Allocation": {
+        "Gen0Collections": 537,
+        "Gen1Collections": 0,
+        "Gen2Collections": 0,
+        "AllocatedBytes": 536
+      }
+    },
+    {
+      "Name": "SumIntegers",
+      "IsBaseline": true,
+      "Categories": [
+        "SomeCategory",
+        "Regular"
+      ],
+      "Parameters": [
+        {
+          "Name": "Count",
+          "Value": "42",
+          "Type": "Int32"
+        }
+      ],
+      "HardwareIntrinsics": "AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256",
+      "Statistics": {
+        "Mean": 120.6814014116923,
+        "Median": 120.78095936775208,
+        "StandardDeviation": 0.7329357120629901,
+        "SampleSize": 6
+      },
+      "Allocation": {
+        "Gen0Collections": 369,
+        "Gen1Collections": 0,
+        "Gen2Collections": 0,
+        "AllocatedBytes": 368
+      }
+    },
+    {
+      "Name": "SumDoubles",
+      "IsBaseline": false,
+      "Categories": [
+        "OtherCategory",
+        "Regular"
+      ],
+      "Parameters": [
+        {
+          "Name": "Count",
+          "Value": "54",
+          "Type": "Int32"
+        }
+      ],
+      "HardwareIntrinsics": "AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256",
+      "Statistics": {
+        "Mean": 190.1119761126382,
+        "Median": 191.5717384815216,
+        "StandardDeviation": 3.343227140810547,
+        "SampleSize": 7
+      },
+      "Allocation": {
+        "Gen0Collections": 633,
+        "Gen1Collections": 0,
+        "Gen2Collections": 0,
+        "AllocatedBytes": 632
+      }
+    },
+    {
+      "Name": "SumIntegers",
+      "IsBaseline": true,
+      "Categories": [
+        "SomeCategory",
+        "Regular"
+      ],
+      "Parameters": [
+        {
+          "Name": "Count",
+          "Value": "54",
+          "Type": "Int32"
+        }
+      ],
+      "HardwareIntrinsics": "AVX2,AES,BMI1,BMI2,FMA,LZCNT,PCLMUL,POPCNT VectorSize=256",
+      "Statistics": {
+        "Mean": 137.59001200539726,
+        "Median": 137.89618372917175,
+        "StandardDeviation": 1.0305874559096901,
+        "SampleSize": 7
+      },
+      "Allocation": {
+        "Gen0Collections": 417,
+        "Gen1Collections": 0,
+        "Gen2Collections": 0,
+        "AllocatedBytes": 416
+      }
+    }
+  ]
+}
