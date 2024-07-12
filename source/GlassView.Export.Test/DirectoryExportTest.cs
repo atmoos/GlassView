@@ -1,11 +1,8 @@
 using System.Text.Json;
 using BenchmarkDotNet.Loggers;
+using Atmoos.World;
 using Atmoos.GlassView.Core;
 using Atmoos.GlassView.Core.Models;
-
-using FileSystem = Atmoos.World.InMemory.IO.UnixFileSystem<Atmoos.World.InMemory.Time>;
-using DirectoryExport = Atmoos.GlassView.Export.DirectoryExport<Atmoos.World.InMemory.IO.UnixFileSystem<Atmoos.World.InMemory.Time>>;
-using Atmoos.World;
 
 namespace Atmoos.GlassView.Export.Test;
 
@@ -19,7 +16,7 @@ public class DirectoryExportTest
         var options = new JsonSerializerOptions().EnableGlassView();
         var summary = testFile.Deserialize<BenchmarkSummary>(options);
         var emptyDirectory = CreateUniqueDirectory();
-        var export = new DirectoryExport(emptyDirectory, options);
+        var export = new DirectoryExport<TestFileSystem>(emptyDirectory, options);
         await export.Export(summary, NullLogger.Instance, CancellationToken.None);
 
         var exportedFile = Assert.Single(emptyDirectory);
@@ -31,9 +28,9 @@ public class DirectoryExportTest
     public void ToStringContainsExportPath()
     {
         String[] pathComponents = ["path", "to", "directory"];
-        var path = Path.Abs(FileSystem.Root, pathComponents);
-        var directory = FileSystem.Create(path);
-        var export = new DirectoryExport(directory, JsonSerializerOptions.Default);
+        var path = Path.Abs(TestFileSystem.Root, pathComponents);
+        var directory = TestFileSystem.Create(path);
+        var export = new DirectoryExport<TestFileSystem>(directory, JsonSerializerOptions.Default);
 
         var result = export.ToString();
 
@@ -44,6 +41,6 @@ public class DirectoryExportTest
     private static IDirectory CreateUniqueDirectory()
     {
         var uniqueName = Guid.NewGuid().ToString();
-        return FileSystem.Create(FileSystem.Root, new DirectoryName(uniqueName));
+        return TestFileSystem.Create(TestFileSystem.Root, new DirectoryName(uniqueName));
     }
 }
