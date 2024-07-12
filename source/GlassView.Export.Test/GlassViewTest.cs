@@ -1,5 +1,8 @@
-using Microsoft.Extensions.Configuration;
+using System.IO;
 using System.Text;
+using Microsoft.Extensions.Configuration;
+
+using DirectoryExport = Atmoos.GlassView.Export.DirectoryExport<Atmoos.World.IO.FileSystem.Current>;
 
 namespace Atmoos.GlassView.Export.Test;
 
