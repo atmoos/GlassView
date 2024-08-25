@@ -12,11 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Atmoos.World.InMemory" Version="0.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Using Remove="System.IO" />
     <None Update="Resources\TestBenchmark.json" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup> 
+  </ItemGroup>
 
 </Project>

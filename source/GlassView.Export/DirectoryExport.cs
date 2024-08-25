@@ -1,21 +1,22 @@
 using System.Text.Json;
 using BenchmarkDotNet.Loggers;
+using Atmoos.World;
 using Atmoos.GlassView.Core.Models;
 
 namespace Atmoos.GlassView.Export;
 
-internal sealed class DirectoryExport(DirectoryInfo path, JsonSerializerOptions options) : IExport
+internal sealed class DirectoryExport<FileSystem>(IDirectory directory, JsonSerializerOptions options) : IExport
+    where FileSystem : IFileCreation
 {
     public async Task Export(BenchmarkSummary summary, ILogger logger, CancellationToken token)
     {
-        FileInfo file = path.AddFile(FileNameFor(summary));
-        logger.WriteLineInfo($"file: {file.FullName}");
-        using var stream = file.Open(FileMode.Create, FileAccess.Write, FileShare.None);
+        IFile file = FileSystem.Create(directory, FileNameFor(summary));
+        logger.WriteLineInfo($"file: {file}");
+        using var stream = file.OpenWrite();
         await JsonSerializer.SerializeAsync(stream, summary, options, token).ConfigureAwait(ConfigureAwaitOptions.None);
     }
 
-    public override String ToString() => $"{nameof(Export)}: {path.FullName}";
-
-    private static String FileNameFor(BenchmarkSummary summary)
-        => $"{summary.Name}-{summary.Timestamp.ToLocalTime():s}.json".Replace(':', '-');
+    public override String ToString() => $"{nameof(Export)}: {directory.ToPath()}";
+    private static FileName FileNameFor(BenchmarkSummary summary)
+        => new($"{summary.Name}-{summary.Timestamp.ToLocalTime():s}".Replace(':', '-'), "json");
 }
