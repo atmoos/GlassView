@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../GlassView.Build.props" />
+  <Import Project="../GlassView.Test.props" />
+
+</Project>

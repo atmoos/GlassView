@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../GlassView.Build.props" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\GlassView.Core\GlassView.Core.csproj" />
+  </ItemGroup>
+</Project>
