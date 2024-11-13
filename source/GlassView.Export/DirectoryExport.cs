@@ -1,38 +1,22 @@
 using System.Text.Json;
 using BenchmarkDotNet.Loggers;
-using BenchmarkDotNet.Reports;
-using Atmoos.GlassView.Core;
+using Atmoos.World;
 using Atmoos.GlassView.Core.Models;
-using Atmoos.GlassView.Export.Configuration;
-
-using static Atmoos.GlassView.Export.Mapping;
-using static Atmoos.GlassView.Export.Extensions;
 
 namespace Atmoos.GlassView.Export;
 
-internal sealed class DirectoryExport(DirectoryInfo path, ILogger logger) : IExport
+internal sealed class DirectoryExport<FileSystem>(IDirectory directory, JsonSerializerOptions options) : IExport
+    where FileSystem : IFileCreation
 {
-    private static readonly JsonSerializerOptions defaultOptions = new JsonSerializerOptions().EnableGlassView();
-    private readonly JsonSerializerOptions options = defaultOptions;
-
-    public DirectoryExport(DirectoryInfo path, JsonFormatting formatting, ILogger logger)
-        : this(path, logger)
+    public async Task Export(BenchmarkSummary summary, ILogger logger, CancellationToken token)
     {
-        this.options = new JsonSerializerOptions().EnableGlassView();
-        Set(formatting?.Indented, value => this.options.WriteIndented = value);
-        Set(formatting?.AllowTrailingCommas, value => this.options.AllowTrailingCommas = value);
+        IFile file = FileSystem.Create(directory, FileNameFor(summary));
+        logger.WriteLineInfo($"file: {file}");
+        using var stream = file.OpenWrite();
+        await JsonSerializer.SerializeAsync(stream, summary, options, token).ConfigureAwait(ConfigureAwaitOptions.None);
     }
 
-    public async Task Export(Summary inputSummary, CancellationToken token)
-    {
-        var summary = Map(inputSummary);
-        FileInfo file = CombineToFile(path, summary);
-        logger.WriteLine($"Exporting summary '{summary.Name}' to:");
-        logger.WriteLine($" -> {file.FullName}");
-        using var stream = file.Open(FileMode.Create, FileAccess.Write, FileShare.None);
-        await JsonSerializer.SerializeAsync(stream, summary, this.options, token).ConfigureAwait(ConfigureAwaitOptions.None);
-    }
-    public override String ToString() => $"{nameof(Export)}: {path.FullName}";
-    private static FileInfo CombineToFile(DirectoryInfo path, BenchmarkSummary summary)
-        => new(Path.Combine(path.FullName, $"{summary.Name}.json"));
+    public override String ToString() => $"{nameof(Export)}: {directory.ToPath()}";
+    private static FileName FileNameFor(BenchmarkSummary summary)
+        => new($"{summary.Name}-{summary.Timestamp.ToLocalTime():s}".Replace(':', '-'), "json");
 }

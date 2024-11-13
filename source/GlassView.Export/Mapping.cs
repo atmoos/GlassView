@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using BenchmarkDotNet.Engines;
 using BenchmarkDotNet.Environments;
 using BenchmarkDotNet.Mathematics;
+using BenchmarkDotNet.Parameters;
 using BenchmarkDotNet.Portability.Cpu;
 using BenchmarkDotNet.Reports;
 using Atmoos.GlassView.Core.Models;
@@ -49,17 +50,20 @@ internal static class Mapping
             BenchmarkReport? report;
             foreach (var benchmarkCase in summary.BenchmarksCases) {
                 if ((report = summary[benchmarkCase]) != null && report.Success && report.ResultStatistics != null) {
-                    yield return Map(benchmarkCase, report.ResultStatistics, report.GcStats);
+                    var hwIntrinsics = report.GetHardwareIntrinsicsInfo() ?? "unknown";
+                    yield return Map(benchmarkCase, report.ResultStatistics, report.GcStats, hwIntrinsics);
                 }
             }
         }
     }
 
-    private static BenchmarkCase Map(BenchmarkDotNet.Running.BenchmarkCase benchmarkCase, Statistics statistics, GcStats gcStats)
+    private static BenchmarkCase Map(BenchmarkDotNet.Running.BenchmarkCase benchmarkCase, Statistics statistics, GcStats gcStats, String hwIntrinsics)
         => new() {
             Name = benchmarkCase.Descriptor.WorkloadMethod.Name,
             IsBaseline = benchmarkCase.Descriptor.Baseline,
             Categories = benchmarkCase.Descriptor.Categories,
+            HardwareIntrinsics = hwIntrinsics,
+            Parameters = benchmarkCase.Parameters.Items.Select(Map).ToArray(),
             Allocation = Map(gcStats, gcStats.GetBytesAllocatedPerOperation(benchmarkCase) ?? 0),
             Statistics = Map(statistics)
         };
@@ -88,10 +92,15 @@ internal static class Mapping
     private static ProcessorInfo Map(CpuInfo cpuInfo, String architecture) => new() {
         Name = cpuInfo.ProcessorName,
         Architecture = architecture,
-        HardwareIntrinsics = "ToDo!", // See issue #9
         Count = cpuInfo.PhysicalCoreCount ?? 0,
         PhysicalCoreCount = cpuInfo.PhysicalCoreCount ?? 0,
         LogicalCoreCount = cpuInfo.LogicalCoreCount ?? 0
+    };
+
+    private static Parameter Map(ParameterInstance parameter) => new() {
+        Name = parameter.Name,
+        Value = parameter.Value.ToString() ?? "null",
+        Type = parameter.Value.GetType().Name
     };
 
     private static DotnetInfo MapDotnet(HostEnvironmentInfo environment) => new() {

@@ -1,25 +1,10 @@
 using System.Text.Json;
-using BenchmarkDotNet.Reports;
 using Atmoos.GlassView.Core;
-using Microsoft.Extensions.Configuration;
-using static System.Threading.Tasks.ConfigureAwaitOptions;
 
 namespace Atmoos.GlassView.Export;
 
 public static class Extensions
 {
-    public static async Task Export(this IExport exporter, IEnumerable<Summary> inputSummaries, CancellationToken token = default)
-    {
-        // For fun, some interleaved exporting :-)
-        Task export = Task.CompletedTask;
-        foreach (Summary summary in inputSummaries) {
-            Task next = exporter.Export(summary, token);
-            await export.ConfigureAwait(None);
-            export = next;
-        }
-        await export.ConfigureAwait(None);
-    }
-
     internal static String Serialize<T>(this T value) => Serialize(value, Options(new JsonSerializerOptions()));
     internal static String Serialize<T>(this T value, JsonSerializerOptions options) => JsonSerializer.Serialize(value, options);
 
@@ -29,12 +14,19 @@ public static class Extensions
         return options.EnableGlassView();
     }
 
-    internal static T Item<T>(this IConfiguration config) => config.GetSection(typeof(T).Name).Get<T>();
-
-    internal static void Set(Boolean? value, Action<Boolean> setter)
+    internal static void SetValue<T>(T? value, Action<T> setter)
+        where T : struct
     {
         if (value != null) {
             setter(value.Value);
+        }
+    }
+
+    internal static void Set<T>(T? value, Action<T> setter)
+        where T : class
+    {
+        if (value != null) {
+            setter(value);
         }
     }
 }
